@@ -20,14 +20,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
                 boxShadow: `
                 0 2px 6px rgba(0,0,0,0.08),
                 0 12px 24px rgba(0,0,0,0.06)
-                `,
-                "&:hover": {
-                    transform: "translateY(-6px)",
-                    boxShadow: `
-                        0 6px 12px rgba(0,0,0,0.1),
-                        0 20px 40px rgba(0,0,0,0.12)
-                    `,
-                },
+                `
             }}
             elevation={0}
         >
