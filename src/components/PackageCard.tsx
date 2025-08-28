@@ -26,7 +26,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
         >
             <CardMedia
                 component="img"
-                height="140"
+                height="175"
                 image={imageUrl}
                 alt={title}
             />
@@ -38,13 +38,34 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
                     p: 2.5,
                 }}
             >
-                <Typography variant="h6" component="div" sx={{ fontWeight: 600 }}>
+                <Typography
+                    variant="h6"
+                    component="div"
+                    sx={{
+                        fontWeight: 600,
+                        fontSize: {
+                            xs: "1rem",
+                            sm: "1.1rem",
+                            md: "1.2rem"
+                        },
+                        lineHeight: 1.3,
+                        mb: 1,
+                    }}
+                >
                     {title}
                 </Typography>
                 <Typography
                     variant="body2"
                     color="text.secondary"
-                    sx={{ flexGrow: 1 }}
+                    sx={{
+                        flexGrow: 1,
+                        fontSize: {
+                            xs: "0.8rem",
+                            sm: "0.9rem",
+                            md: "0.95rem",
+                        },
+                        lineHeight: 1.5,
+                    }}
                 >
                     {description}
                 </Typography>
