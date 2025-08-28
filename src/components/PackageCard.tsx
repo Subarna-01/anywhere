@@ -75,8 +75,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
                         fullWidth
                         sx={{
                             textTransform: "none",
-
-                            borderRadius: 0,
+                            borderRadius: 10,
                             py: 1.25,
                             backgroundColor: "#00ad83",
                             "&:hover": {

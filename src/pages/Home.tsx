@@ -27,34 +27,22 @@ export const Home: React.FC = () => {
     const mockPackages = [
         {
             id: 1,
-            title: "Explore Bhutan",
-            description: "Experience the serene mountains and unique culture.",
-            imageUrl: "https://source.unsplash.com/random/400x300?bhutan",
+            title: "Bhutan: 3 Nights / 4 Days",
+            description: "Short escape to the Land of the Thunder Dragon. Explore Thimphu and Paro, visit ancient monasteries, and enjoy the peaceful Himalayan atmosphere.",
+            imageUrl: "https://i.ytimg.com/vi/esddmLk4feI/maxresdefault.jpg",
         },
         {
             id: 2,
-            title: "Discover India",
-            description: "A vibrant country full of colors, spices and traditions.",
-            imageUrl: "https://source.unsplash.com/random/400x300?india",
+            title: "Bhutan: 5 Nights / 6 Days",
+            description: "A cultural journey through Bhutan. Discover Thimphu, Punakha Dzong, Dochula Pass, and the stunning valleys of Paro with a perfect mix of history and nature.",
+            imageUrl: "https://www.regent-holidays.co.uk/upload-files/blog-sections/section-89_1081.jpg",
         },
         {
             id: 3,
-            title: "Germany Highlights",
-            description: "Castles, beer, and the scenic countryside.",
-            imageUrl: "https://source.unsplash.com/random/400x300?germany",
+            title: "Bhutan Luxury Escape: 6 Nights / 7 Days",
+            description: "Stay in premium resorts while enjoying curated experiences — from wellness retreats in Paro to private tours of Thimphu and Punakha’s breathtaking landscapes.",
+            imageUrl: "https://www.flamingotravels.co.in/_next/image?url=https%3A%2F%2Fimgcdn.flamingotravels.co.in%2FImages%2FCity%2FBuddha%20Point%20-%20Thimphu%201.jpg&w=1920&q=90",
         },
-        {
-            id: 4,
-            title: "Norway Fjords",
-            description: "Majestic fjords and northern lights adventures.",
-            imageUrl: "https://source.unsplash.com/random/400x300?norway",
-        },
-        {
-            id: 5,
-            title: "Norway Fjords",
-            description: "Majestic fjords and northern lights adventures.",
-            imageUrl: "https://source.unsplash.com/random/400x300?norway",
-        }
     ];
 
 
