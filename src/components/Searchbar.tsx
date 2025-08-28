@@ -65,7 +65,9 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, setSearchQuer
                                     paddingRight: "96px",
                                     borderRadius: 10,
                                     boxShadow: "0 12px 40px rgba(0, 0, 0, 0.25)",
-                                    backgroundColor: "#ffffff",
+                                    backgroundColor: "rgba(255, 255, 255, 0.9)",
+                                    backdropFilter: "blur(10px)",
+                                    WebkitBackdropFilter: "blur(10px)",
                                     "& fieldset": {
                                         border: "none",
                                     },
@@ -101,9 +103,9 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, setSearchQuer
                                     width: 40,
                                     boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
                                     borderRadius: "50%",
-                                    backgroundColor: "#ffffff",
+                                    backgroundColor: "rgba(255, 255, 255, 0.9)",
                                     "&:hover": {
-                                        backgroundColor: "#f0f0f0",
+                                        backgroundColor: "rgba(240, 240, 240, 0.9)"
                                     },
                                     visibility: searchQuery ? "visible" : "hidden",
                                     pointerEvents: searchQuery ? "auto" : "none"
