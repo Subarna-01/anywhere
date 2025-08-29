@@ -87,7 +87,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
                             },
                         }}
                     >
-                        Check Itinerary
+                        Learn More
                     </Button>
                 </Box>
             </CardContent>

@@ -2,11 +2,13 @@ import * as React from "react";
 import { Box, Typography, Skeleton } from "@mui/material";
 import { Searchbar } from "../components/Searchbar";
 import { PackageCard } from "../components/PackageCard";
+import HeroSectionBgImage from "../assets/hero-section-bg.jpg";
 
 export const Home: React.FC = () => {
     const [searchQuery, setSearchQuery] = React.useState("");
     const [loading, setLoading] = React.useState(false);
     const [packages, setPackages] = React.useState<typeof mockPackages>([]);
+    const [isSearchMode, setIsSearchMode] = React.useState(false);
 
     const mockCountrySuggestions = ["Bhutan", "Vietnam"];
     const mockCountryCodes: Record<string, string> = { Bhutan: "bt", Vietnam: "vn" };
@@ -32,35 +34,42 @@ export const Home: React.FC = () => {
         },
     ];
 
-
     React.useEffect(() => {
         setPackages(mockPackages);
     }, []);
 
+    React.useEffect(() => {
+        if (!searchQuery.trim()) {
+            setIsSearchMode(false);
+            setPackages(mockPackages);
+        }
+    }, [searchQuery]);
+
     const handleSearch = () => {
-        if (!searchQuery || searchQuery == "") return;
+        if (!searchQuery.trim()) {
+            setIsSearchMode(false);
+            setPackages(mockPackages);
+            return;
+        }
 
         setLoading(true);
+        setIsSearchMode(true);
         setPackages([]);
 
         setTimeout(() => {
-            if (!searchQuery.trim()) {
-                setPackages(mockPackages);
-            } else {
-                const filtered = mockPackages.filter(pkg =>
-                    pkg.title.toLowerCase().includes(searchQuery.toLowerCase())
-                );
-                setPackages(filtered);
-            }
+            const filtered = mockPackages.filter(pkg =>
+                pkg.title.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            setPackages(filtered);
             setLoading(false);
         }, 1500);
     };
-
 
     return (
         <Box sx={{ minHeight: "100vh" }}>
             <Box
                 sx={{
+                    position: "relative",
                     height: { xs: 225, sm: 275 },
                     px: 2,
                     display: "flex",
@@ -68,15 +77,27 @@ export const Home: React.FC = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     textAlign: "center",
-                    backgroundColor: "#00ad83"
+                    backgroundImage: `url(${HeroSectionBgImage})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
                 }}
             >
+                <Box
+                    sx={{
+                        position: "absolute",
+                        inset: 0,
+                        background: "rgba(0,0,0,0.4)",
+                    }}
+                />
                 <Typography
                     variant="h2"
                     sx={{
+                        position: "relative",
+                        zIndex: 1,
                         fontWeight: 700,
                         fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
-                        color: "#ffffff"
+                        color: "#ffffff",
                     }}
                 >
                     Anywhere
@@ -84,8 +105,10 @@ export const Home: React.FC = () => {
                 <Typography
                     sx={{
                         mt: 1,
+                        position: "relative",
+                        zIndex: 1,
                         fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
-                        color: "#ffffff"
+                        color: "#ffffff",
                     }}
                 >
                     Go Anywhere. Feel Everything
@@ -114,7 +137,7 @@ export const Home: React.FC = () => {
                             },
                             mx: { xs: 3, sm: 4, md: 5 },
                             my: { xs: 3, sm: 4, md: 5 },
-                            borderRadius: 0
+                            borderRadius: 0,
                         }}
                     />
                 ) : (
@@ -124,8 +147,8 @@ export const Home: React.FC = () => {
                             sx={{
                                 px: { xs: 3, sm: 4, md: 5 },
                                 py: { xs: 3, sm: 4, md: 5 },
-                                fontSize: { xs: "1.15rem", sm: "1.4rem", md: "1.65rem" },
-                                color: "#000000"
+                                fontSize: { xs: "1rem", sm: "1.4rem", md: "1.65rem" },
+                                color: "#000000",
                             }}
                         >
                             Discover Bhutan: Curated Travel Packages
@@ -174,8 +197,7 @@ export const Home: React.FC = () => {
                                 alignItems: "center",
                                 justifyContent: "center",
                                 minHeight: 200,
-                                px: { xs: 3, sm: 4, md: 5 }
-
+                                px: { xs: 3, sm: 4, md: 5 },
                             }}
                         >
                             <Typography variant="body1" color="text.secondary">
@@ -185,6 +207,43 @@ export const Home: React.FC = () => {
                     )
                 )}
             </Box>
+
+            {!loading && !isSearchMode && (
+                <Box
+                    sx={{
+                        backgroundColor: "#e6f9f4",
+                        my: { xs: 3.5, sm: 5.5, md: 7.5 },
+                        py: { xs: 6, sm: 8, md: 10 },
+                        px: { xs: 3, sm: 6, md: 10 },
+                        textAlign: "center",
+                    }}
+                >
+                    <Typography
+                        variant="h4"
+                        sx={{
+                            fontWeight: 700,
+                            mb: 2,
+                            fontSize: { xs: "1.45rem", sm: "1.95rem", md: "2.2rem" },
+                            color: "#000",
+                        }}
+                    >
+                        Travel Made Simple
+                    </Typography>
+
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            maxWidth: 600,
+                            mx: "auto",
+                            fontSize: { xs: "0.85rem", sm: "0.95rem", md: "1.05rem" },
+                            color: "#333",
+                        }}
+                    >
+                        Share your travel plans with us, get a quick personalized quote, &amp; let us take care of
+                        everything from bookings to experiences.
+                    </Typography>
+                </Box>
+            )}
         </Box>
     );
 };

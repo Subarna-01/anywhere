@@ -14,7 +14,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, setSearchQuer
                     md: "50%",
                     lg: "40%"
                 },
-                mt: 3.5
+                mt: 3.5,
             }}
         >
             <Autocomplete
