@@ -73,8 +73,8 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
                         variant="contained"
                         fullWidth
                         sx={{
-                            textTransform: "none",
-                            borderRadius: 10,
+                            // textTransform: "none",
+                            // borderRadius: 10,
                             py: 1.25,
                             fontSize: {
                                 xs: "0.7rem",

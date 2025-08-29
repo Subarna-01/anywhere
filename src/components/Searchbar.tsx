@@ -48,7 +48,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, setSearchQuer
                 PaperComponent={({ children }) => (
                     <Paper
                         sx={{
-                            borderRadius: 0
+                            // borderRadius: 0
                         }}
                     >
                         {children}

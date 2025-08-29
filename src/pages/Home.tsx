@@ -16,19 +16,19 @@ export const Home: React.FC = () => {
     const mockPackages = [
         {
             id: 1,
-            title: "Bhutan: 3 Nights / 4 Days",
+            title: "Bhutan Highlights – 4 Days",
             description: "Short escape to the Land of the Thunder Dragon. Explore Thimphu and Paro, visit ancient monasteries, and enjoy the peaceful Himalayan atmosphere.",
             imageUrl: "https://i.ytimg.com/vi/esddmLk4feI/maxresdefault.jpg",
         },
         {
             id: 2,
-            title: "Bhutan: 5 Nights / 6 Days",
+            title: "Cultural Bhutan Journey – 6 Days",
             description: "A cultural journey through Bhutan. Discover Thimphu, Punakha Dzong, Dochula Pass, and the stunning valleys of Paro with a perfect mix of history and nature.",
             imageUrl: "https://www.regent-holidays.co.uk/upload-files/blog-sections/section-89_1081.jpg",
         },
         {
             id: 3,
-            title: "Bhutan Luxury Escape: 6 Nights / 7 Days",
+            title: "Luxury Escape in Bhutan – 7 Days",
             description: "Stay in premium resorts while enjoying curated experiences — from wellness retreats in Paro to private tours of Thimphu and Punakha’s breathtaking landscapes.",
             imageUrl: "https://www.flamingotravels.co.in/_next/image?url=https%3A%2F%2Fimgcdn.flamingotravels.co.in%2FImages%2FCity%2FBuddha%20Point%20-%20Thimphu%201.jpg&w=1920&q=90",
         },
@@ -157,6 +157,35 @@ export const Home: React.FC = () => {
                 )}
             </Box>
 
+            {!loading && packages.length === 0 && (
+                <Box
+                    sx={{
+                        flex: 1,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        minHeight: "calc(100vh - 275px)",
+                        px: { xs: 3, sm: 4, md: 5 },
+                    }}
+                >
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            color: "text.secondary",
+                            fontWeight: 500,
+                            fontSize: {
+                                xs: "1rem",
+                                sm: "1.25rem",
+                                md: "1.35rem",
+                                lg: "1.65rem"
+                            }
+                        }}
+                    >
+                        We couldn’t find what you’re looking for — but adventure awaits elsewhere!
+                    </Typography>
+                </Box>
+            )}
+
             <Box
                 sx={{
                     display: "grid",
@@ -189,23 +218,7 @@ export const Home: React.FC = () => {
                             imageUrl={pkg.imageUrl}
                         />
                     ))
-                ) : (
-                    !loading && (
-                        <Box
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                minHeight: 200,
-                                px: { xs: 3, sm: 4, md: 5 },
-                            }}
-                        >
-                            <Typography variant="body1" color="text.secondary">
-                                No results found
-                            </Typography>
-                        </Box>
-                    )
-                )}
+                ) : null}
             </Box>
 
             {!loading && !isSearchMode && (
@@ -239,11 +252,11 @@ export const Home: React.FC = () => {
                             color: "#333",
                         }}
                     >
-                        Share your travel plans with us, get a quick personalized quote, &amp; let us take care of
-                        everything from bookings to experiences.
+                        Share your travel plans with us, get a quick personalized quote, &amp; let us take care of everything from bookings to experiences.
                     </Typography>
                 </Box>
             )}
+
         </Box>
     );
 };
