@@ -1,17 +1,16 @@
 import * as React from "react";
 import { Box, Typography, Card, CardContent, CardMedia, Button } from "@mui/material";
-
-interface PackageCardProps {
-    title: string;
-    description: string;
-    imageUrl: string;
-}
+import { PackageCardProps } from "../interfaces/PackageCardProps";
 
 export const PackageCard: React.FC<PackageCardProps> = ({ title, description, imageUrl }) => {
     return (
         <Card
             sx={{
-                minHeight: 360,
+                minHeight: {
+                    xs: 250,
+                    sm: 320,
+                    md: 360
+                },
                 display: "flex",
                 flexDirection: "column",
                 borderRadius: 0,
@@ -26,7 +25,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
         >
             <CardMedia
                 component="img"
-                height="175"
+                height="140"
                 image={imageUrl}
                 alt={title}
             />
@@ -44,9 +43,9 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
                     sx={{
                         fontWeight: 600,
                         fontSize: {
-                            xs: "1rem",
-                            sm: "1.1rem",
-                            md: "1.2rem"
+                            xs: "0.9rem",
+                            sm: "1rem",
+                            md: "1.1rem"
                         },
                         lineHeight: 1.3,
                         mb: 1,
@@ -60,9 +59,9 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
                     sx={{
                         flexGrow: 1,
                         fontSize: {
-                            xs: "0.8rem",
-                            sm: "0.9rem",
-                            md: "0.95rem",
+                            xs: "0.7rem",
+                            sm: "0.8rem",
+                            md: "0.85rem",
                         },
                         lineHeight: 1.5,
                     }}
@@ -77,13 +76,18 @@ export const PackageCard: React.FC<PackageCardProps> = ({ title, description, im
                             textTransform: "none",
                             borderRadius: 10,
                             py: 1.25,
+                            fontSize: {
+                                xs: "0.7rem",
+                                sm: "0.8rem",
+                                md: "0.9rem",
+                            },
                             backgroundColor: "#00ad83",
                             "&:hover": {
                                 backgroundColor: "#009973",
                             },
                         }}
                     >
-                        Book Now
+                        Check Itinerary
                     </Button>
                 </Box>
             </CardContent>

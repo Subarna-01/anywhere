@@ -1,28 +1,15 @@
 import * as React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Skeleton } from "@mui/material";
 import { Searchbar } from "../components/Searchbar";
 import { PackageCard } from "../components/PackageCard";
 
 export const Home: React.FC = () => {
     const [searchQuery, setSearchQuery] = React.useState("");
+    const [loading, setLoading] = React.useState(false);
+    const [packages, setPackages] = React.useState<typeof mockPackages>([]);
 
-    const mockCountrySuggestions = [
-        "Bhutan",
-        "India",
-        "Germany",
-        "Norway",
-        "Vietnam",
-        "Turkey"
-    ];
-
-    const mockCountryCodes: Record<string, string> = {
-        Bhutan: "bt",
-        India: "in",
-        Germany: "de",
-        Norway: "no",
-        Vietnam: "vn",
-        Turkey: "tr"
-    };
+    const mockCountrySuggestions = ["Bhutan", "Vietnam"];
+    const mockCountryCodes: Record<string, string> = { Bhutan: "bt", Vietnam: "vn" };
 
     const mockPackages = [
         {
@@ -46,15 +33,33 @@ export const Home: React.FC = () => {
     ];
 
 
+    React.useEffect(() => {
+        setPackages(mockPackages);
+    }, []);
+
+    const handleSearch = () => {
+        if (!searchQuery || searchQuery == "") return;
+
+        setLoading(true);
+        setPackages([]);
+
+        setTimeout(() => {
+            if (!searchQuery.trim()) {
+                setPackages(mockPackages);
+            } else {
+                const filtered = mockPackages.filter(pkg =>
+                    pkg.title.toLowerCase().includes(searchQuery.toLowerCase())
+                );
+                setPackages(filtered);
+            }
+            setLoading(false);
+        }, 1500);
+    };
+
+
     return (
-        <Box
-            component="div"
-            sx={{
-                minHeight: "100vh",
-            }}
-        >
+        <Box sx={{ minHeight: "100vh" }}>
             <Box
-                component="div"
                 sx={{
                     height: { xs: 225, sm: 275 },
                     px: 2,
@@ -68,31 +73,18 @@ export const Home: React.FC = () => {
             >
                 <Typography
                     variant="h2"
-                    component="h2"
                     sx={{
                         fontWeight: 700,
-                        fontSize: {
-                            xs: "2rem",
-                            sm: "2.5rem",
-                            md: "3rem",
-                            lg: "3.5rem"
-                        },
+                        fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
                         color: "#ffffff"
                     }}
                 >
                     Anywhere
                 </Typography>
-
                 <Typography
-                    variant="body1"
-                    component="span"
                     sx={{
                         mt: 1,
-                        fontSize: {
-                            xs: "0.75rem",
-                            sm: "0.875rem",
-                            md: "1rem",
-                        },
+                        fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
                         color: "#ffffff"
                     }}
                 >
@@ -104,60 +96,95 @@ export const Home: React.FC = () => {
                     setSearchQuery={setSearchQuery}
                     countrySuggestions={mockCountrySuggestions}
                     countryCodes={mockCountryCodes}
+                    onSearch={handleSearch}
                 />
-
             </Box>
 
             <Box>
-                <Typography
-                    variant="h5"
-                    component="h5"
-                    sx={{
-                        px: { xs: 3, sm: 4, md: 5 },
-                        py: { xs: 3, sm: 4, md: 5 },
-                        fontSize: {
-                            xs: "1.25rem",
-                            sm: "1.5rem",
-                            md: "1.75rem"
-                        },
-                        color: "#000000"
-                    }}
-                >
-                    Packages For You
-                </Typography>
+                {loading ? (
+                    <Skeleton
+                        variant="text"
+                        height={40}
+                        sx={{
+                            width: {
+                                xs: "80%",
+                                sm: "70%",
+                                md: "60%",
+                                lg: "50%",
+                            },
+                            mx: { xs: 3, sm: 4, md: 5 },
+                            my: { xs: 3, sm: 4, md: 5 },
+                            borderRadius: 0
+                        }}
+                    />
+                ) : (
+                    packages.length > 0 && (
+                        <Typography
+                            variant="h5"
+                            sx={{
+                                px: { xs: 3, sm: 4, md: 5 },
+                                py: { xs: 3, sm: 4, md: 5 },
+                                fontSize: { xs: "1.15rem", sm: "1.4rem", md: "1.65rem" },
+                                color: "#000000"
+                            }}
+                        >
+                            Discover Bhutan: Curated Travel Packages
+                        </Typography>
+                    )
+                )}
             </Box>
 
             <Box
                 sx={{
                     display: "grid",
                     gridAutoFlow: "column",
-                    gridAutoColumns: {
-                        xs: "80%",
-                        sm: "50%",
-                        md: "33.33%",
-                        lg: "25%",
-                    },
-                    gap: 2,
+                    gridAutoColumns: { xs: "80%", sm: "50%", md: "33.33%", lg: "25%" },
+                    gap: { xs: 3, sm: 4, md: 5 },
                     overflowX: "auto",
                     px: { xs: 3, sm: 4, md: 5 },
                     pb: 4,
                     scrollbarWidth: "none",
                     msOverflowStyle: "none",
-                    "&::-webkit-scrollbar": {
-                        display: "none",
-                    },
+                    "&::-webkit-scrollbar": { display: "none" },
                 }}
             >
-                {mockPackages.map(pkg => (
-                    <PackageCard
-                        key={pkg.id}
-                        title={pkg.title}
-                        description={pkg.description}
-                        imageUrl={pkg.imageUrl}
-                    />
-                ))}
-            </Box>
+                {loading ? (
+                    Array.from(new Array(4)).map((_, idx) => (
+                        <Box key={idx} sx={{ minHeight: 250 }}>
+                            <Skeleton variant="rectangular" height={140} sx={{ borderRadius: 0 }} />
+                            <Skeleton variant="text" height={30} sx={{ mt: 1, borderRadius: 0 }} />
+                            <Skeleton variant="text" height={75} sx={{ borderRadius: 0 }} />
+                            <Skeleton variant="rectangular" height={40} sx={{ mt: 2, borderRadius: 0 }} />
+                        </Box>
+                    ))
+                ) : packages.length > 0 ? (
+                    packages.map(pkg => (
+                        <PackageCard
+                            key={pkg.id}
+                            title={pkg.title}
+                            description={pkg.description}
+                            imageUrl={pkg.imageUrl}
+                        />
+                    ))
+                ) : (
+                    !loading && (
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                minHeight: 200,
+                                px: { xs: 3, sm: 4, md: 5 }
 
+                            }}
+                        >
+                            <Typography variant="body1" color="text.secondary">
+                                No results found
+                            </Typography>
+                        </Box>
+                    )
+                )}
+            </Box>
         </Box>
     );
 };

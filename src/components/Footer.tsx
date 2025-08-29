@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
                             fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
                         }}
                     >
-                        Go Anywhere. Feel Everything. Explore curated travel experiences
+                        Explore curated travel experiences
                         across the globe.
                     </Typography>
                 </Box>
@@ -164,7 +164,7 @@ export const Footer: React.FC = () => {
                         fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
                     }}
                 >
-                    © {new Date().getFullYear()} Anywhere Travel. All rights reserved.
+                    © {new Date().getFullYear()} Anywhere. All rights reserved.
                 </Typography>
             </Box>
         </Box>

@@ -2,15 +2,9 @@ import * as React from "react";
 import { Box, IconButton, TextField, Autocomplete, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
+import { SearchbarProps } from "../interfaces/SearchbarProps";
 
-interface SearchbarProps {
-    searchQuery: string;
-    setSearchQuery: (value: string) => void;
-    countrySuggestions: string[];
-    countryCodes: Record<string, string>;
-}
-
-export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, setSearchQuery, countrySuggestions, countryCodes }) => {
+export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, setSearchQuery, countrySuggestions, countryCodes, onSearch }) => {
     return (
         <Box
             sx={{
@@ -132,6 +126,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, setSearchQuer
                             </IconButton>
                             <IconButton
                                 size="small"
+                                onClick={onSearch}
                                 sx={{
                                     height: { xs: 32, sm: 36, md: 40 },
                                     width: { xs: 32, sm: 36, md: 40 },
