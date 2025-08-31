@@ -87,7 +87,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ id, title, description
                                 backgroundColor: "#009973"
                             }
                         }}
-                        onClick={() => navigate(`/package/${id}`)}
+                        onClick={() => navigate(`/`)}
                     >
                         Learn More
                     </Button>
