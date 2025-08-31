@@ -47,9 +47,9 @@ export const PackageCard: React.FC<PackageCardProps> = ({ id, title, description
                         mb: 1,
                         fontWeight: 600,
                         fontSize: {
-                            xs: "0.9rem",
-                            sm: "1rem",
-                            md: "1.1rem"
+                            xs: "0.95rem",
+                            sm: "1.05rem",
+                            md: "1.15rem"
                         },
                         lineHeight: 1.3
                     }}
@@ -71,17 +71,18 @@ export const PackageCard: React.FC<PackageCardProps> = ({ id, title, description
                 >
                     {description}
                 </Typography>
-                <Box sx={{ pt: 2, mt: "auto" }}>
+                <Box sx={{ pt: 3.5, mt: "auto" }}>
                     <Button
                         variant="contained"
                         fullWidth
                         sx={{
                             py: 1.25,
                             fontSize: {
-                                xs: "0.7rem",
-                                sm: "0.8rem",
-                                md: "0.9rem",
+                                xs: "0.65rem",
+                                sm: "0.75rem",
+                                md: "0.85rem",
                             },
+                            borderRadius: 0,
                             backgroundColor: "#00ad83",
                             "&:hover": {
                                 backgroundColor: "#009973"

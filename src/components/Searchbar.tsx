@@ -70,9 +70,9 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, countrySugges
                                 ...params.InputProps,
                                 sx: {
                                     paddingRight: "96px",
-                                    boxShadow: "0 12px 40px rgba(0, 0, 0, 0.25)",
-                                    backdropFilter: "blur(10px)",
-                                    WebkitBackdropFilter: "blur(10px)",
+                                    boxShadow: "0 16px 60px 8px rgba(0, 0, 0, 0.35)",
+                                    // backdropFilter: "blur(10px)",
+                                    // WebkitBackdropFilter: "blur(10px)",
                                     borderRadius: 10,
                                     fontSize: {
                                         xs: "0.85rem",
@@ -88,7 +88,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, countrySugges
                                     "&:focus-within": {
                                         outline: "none",
                                     },
-                                    backgroundColor: "rgba(255, 255, 255, 0.9)"
+                                    backgroundColor: "#ffffff"
                                 },
                                 endAdornment: null
                             }}

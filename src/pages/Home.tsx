@@ -225,7 +225,7 @@ export const Home: React.FC = () => {
             {!loading && !isSearchMode && (
                 <Box
                     sx={{
-                        backgroundColor: "#e6f9f4",
+                        backgroundColor: "#ffffff",
                         my: { xs: 3.5, sm: 5.5, md: 7.5 },
                         py: { xs: 6, sm: 8, md: 10 },
                         px: { xs: 3, sm: 6, md: 10 },
@@ -238,7 +238,7 @@ export const Home: React.FC = () => {
                             fontWeight: 700,
                             mb: 2,
                             fontSize: { xs: "1.45rem", sm: "1.95rem", md: "2.2rem" },
-                            color: "#000",
+                            color: "#00ad83",
                         }}
                     >
                         Travel Made Simple
