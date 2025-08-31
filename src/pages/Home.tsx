@@ -96,11 +96,11 @@ export const Home: React.FC = () => {
                         position: "relative",
                         zIndex: 1,
                         fontWeight: 700,
-                        fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
+                        fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem", lg: "3rem" },
                         color: "#ffffff",
                     }}
                 >
-                    Anywhere
+                    anywhere.trips
                 </Typography>
                 <Typography
                     sx={{
