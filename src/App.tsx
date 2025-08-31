@@ -1,13 +1,13 @@
-import './App.css';
-import { createTheme } from '@mui/material/styles';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { Home } from './pages/Home';
-import { Footer } from './components/Footer';
+import "./App.css";
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AppRoute } from "./routes/AppRoute";
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Poppins, sans-serif',
+    fontFamily: "Poppins, sans-serif",
   },
 });
 
@@ -15,8 +15,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Home />
-      <Footer />
+      <Router>
+        <AppRoute />
+      </Router>
     </ThemeProvider>
 
   );

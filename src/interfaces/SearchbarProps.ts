@@ -1,7 +1,7 @@
 export interface SearchbarProps {
     searchQuery: string;
-    setSearchQuery: (value: string) => void;
     countrySuggestions: string[];
     countryCodes: Record<string, string>;
+    setSearchQuery: (value: string) => void;
     onSearch: () => void;
 }

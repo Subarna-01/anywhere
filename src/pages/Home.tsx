@@ -213,6 +213,7 @@ export const Home: React.FC = () => {
                     packages.map(pkg => (
                         <PackageCard
                             key={pkg.id}
+                            id={pkg.id}
                             title={pkg.title}
                             description={pkg.description}
                             imageUrl={pkg.imageUrl}

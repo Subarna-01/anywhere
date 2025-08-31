@@ -4,7 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import { SearchbarProps } from "../interfaces/SearchbarProps";
 
-export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, setSearchQuery, countrySuggestions, countryCodes, onSearch }) => {
+export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, countrySuggestions, countryCodes, setSearchQuery, onSearch }) => {
     return (
         <Box
             sx={{
