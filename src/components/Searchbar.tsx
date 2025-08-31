@@ -14,7 +14,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, countrySugges
                     md: "50%",
                     lg: "40%"
                 },
-                mt: 3.5,
+                mt: 3.5
             }}
         >
             <Autocomplete
@@ -55,21 +55,25 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, countrySugges
                     </Paper>
                 )}
                 renderInput={(params) => (
-                    <Box sx={{ width: "100%", position: "relative" }}>
+                    <Box
+                        sx={{
+                            width: "100%",
+                            position: "relative"
+                        }}
+                    >
                         <TextField
                             {...params}
-                            placeholder="Search destinations..."
+                            placeholder="Search destinations"
                             fullWidth
                             variant="outlined"
                             InputProps={{
                                 ...params.InputProps,
                                 sx: {
                                     paddingRight: "96px",
-                                    borderRadius: 10,
                                     boxShadow: "0 12px 40px rgba(0, 0, 0, 0.25)",
-                                    backgroundColor: "rgba(255, 255, 255, 0.9)",
                                     backdropFilter: "blur(10px)",
                                     WebkitBackdropFilter: "blur(10px)",
+                                    borderRadius: 10,
                                     fontSize: {
                                         xs: "0.85rem",
                                         sm: "0.95rem",
@@ -83,7 +87,8 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, countrySugges
                                     },
                                     "&:focus-within": {
                                         outline: "none",
-                                    }
+                                    },
+                                    backgroundColor: "rgba(255, 255, 255, 0.9)"
                                 },
                                 endAdornment: null
                             }}
@@ -103,44 +108,68 @@ export const Searchbar: React.FC<SearchbarProps> = ({ searchQuery, countrySugges
                             }}
                         >
                             <IconButton
-                                onClick={() => setSearchQuery("")}
                                 size="small"
                                 sx={{
-                                    height: { xs: 32, sm: 36, md: 40 },
-                                    width: { xs: 32, sm: 36, md: 40 },
+                                    height: {
+                                        xs: 32,
+                                        sm: 36,
+                                        md: 40
+                                    },
+                                    width: {
+                                        xs: 32,
+                                        sm: 36,
+                                        md: 40
+                                    },
                                     boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
                                     borderRadius: "50%",
+                                    visibility: searchQuery ? "visible" : "hidden",
+                                    pointerEvents: searchQuery ? "auto" : "none",
                                     backgroundColor: "rgba(255, 255, 255, 0.9)",
                                     "&:hover": {
                                         backgroundColor: "rgba(240, 240, 240, 0.9)"
-                                    },
-                                    visibility: searchQuery ? "visible" : "hidden",
-                                    pointerEvents: searchQuery ? "auto" : "none"
+                                    }
                                 }}
+                                onClick={() => setSearchQuery("")}
                             >
                                 <ClearIcon
                                     sx={{
-                                        fontSize: { xs: "1rem", sm: "1.2rem", md: "1.3rem" }
+                                        fontSize: {
+                                            xs: "1rem",
+                                            sm: "1.2rem",
+                                            md: "1.3rem"
+                                        }
                                     }}
                                 />
                             </IconButton>
                             <IconButton
                                 size="small"
-                                onClick={onSearch}
                                 sx={{
-                                    height: { xs: 32, sm: 36, md: 40 },
-                                    width: { xs: 32, sm: 36, md: 40 },
+                                    height: {
+                                        xs: 32,
+                                        sm: 36,
+                                        md: 40
+                                    },
+                                    width: {
+                                        xs: 32,
+                                        sm: 36,
+                                        md: 40
+                                    },
+                                    pointerEvents: "auto",
                                     color: "#ffffff",
                                     backgroundColor: "#00ad83",
                                     "&:hover": {
-                                        backgroundColor: "#008966",
+                                        backgroundColor: "#008966"
                                     },
-                                    pointerEvents: "auto"
                                 }}
+                                onClick={onSearch}
                             >
                                 <SearchIcon
                                     sx={{
-                                        fontSize: { xs: "1rem", sm: "1.2rem", md: "1.3rem" }
+                                        fontSize: {
+                                            xs: "1rem",
+                                            sm: "1.2rem",
+                                            md: "1.3rem"
+                                        }
                                     }}
                                 />
                             </IconButton>
