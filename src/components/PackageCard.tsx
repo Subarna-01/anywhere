@@ -83,7 +83,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ id, title, description
                                 md: "0.85rem",
                             },
                             borderRadius: 0,
-                            background: 'linear-gradient(135deg, #065e48ff, #00ad83, #66e2c4)',
+                            background: 'linear-gradient(135deg, #079672ff, #00ad83, #66e2c4)',
                             // "&:hover": {
                             //     backgroundColor: "#009973"
                             // }
