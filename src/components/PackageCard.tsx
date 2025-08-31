@@ -83,10 +83,10 @@ export const PackageCard: React.FC<PackageCardProps> = ({ id, title, description
                                 md: "0.85rem",
                             },
                             borderRadius: 0,
-                            backgroundColor: "#00ad83",
-                            "&:hover": {
-                                backgroundColor: "#009973"
-                            }
+                            background: 'linear-gradient(135deg, #065e48ff, #00ad83, #66e2c4)',
+                            // "&:hover": {
+                            //     backgroundColor: "#009973"
+                            // }
                         }}
                         onClick={() => navigate(`/`)}
                     >
